@@ -1,0 +1,16 @@
+Create a basic shopping cart app using TypeScript and React. 
+  1. add items to their cart,
+  2. view the total price,
+  3. and remove items from the cart.
+
+Components:
+  - Product Image Card
+  - Product Information
+  - Add To Cart 
+  - Checkout
+  - Price
+  - Total 
+  - Product Description
+  - Amount 
+
+
