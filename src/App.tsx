@@ -1,10 +1,10 @@
 import "./App.css";
-import ProductGrid from "./components/ProductGrid";
+import Layout from "./components/Layout";
 
 function App() {
   return (
     <>
-      <ProductGrid />
+      <Layout />
     </>
   );
 }
