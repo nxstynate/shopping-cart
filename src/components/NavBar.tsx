@@ -1,5 +1,6 @@
 import { AddIcon } from "@chakra-ui/icons";
-import { HStack, Image, Text } from "@chakra-ui/react";
+import { HStack, Image } from "@chakra-ui/react";
+import Cart from "./Cart";
 
 const NavBar = () => {
   const imageLink =
@@ -7,7 +8,7 @@ const NavBar = () => {
 
   return (
     <>
-      <HStack spacing={20}>
+      <HStack spacing={80}>
         <Image
           boxSize="70px"
           src={imageLink}
@@ -15,9 +16,7 @@ const NavBar = () => {
           borderRadius="full"
         />
         <AddIcon color="white" boxSize={6} />
-        <Text fontSize="xl" color="white">
-          Checkout
-        </Text>
+        <Cart />
       </HStack>
     </>
   );

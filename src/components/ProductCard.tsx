@@ -30,10 +30,10 @@ export default function ProductCard() {
           <Divider />
           <CardFooter>
             <ButtonGroup spacing="2">
-              <Button variant="solid" colorScheme="green">
+              <Button variant="solid" colorScheme="blue">
                 Buy Now
               </Button>
-              <Button variant="outline" colorScheme="green">
+              <Button variant="outline" colorScheme="blue">
                 Add to Cart
               </Button>
             </ButtonGroup>
