@@ -13,4 +13,8 @@ Components:
   - Product Description
   - Amount 
 
+Notes 2023-05-21-0213:
+- map the product card so that the assortment of products will show up spread out on the grid 
+- add a header bar for the cart 
+- add a sidebar for the product 
 

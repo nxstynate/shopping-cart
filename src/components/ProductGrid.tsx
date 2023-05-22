@@ -9,11 +9,6 @@ export default function ProductGrid() {
       spacing={6}
     >
       <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
     </SimpleGrid>
   );
 }
