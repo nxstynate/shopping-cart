@@ -10,13 +10,21 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import { ProductItem, productItems } from "../productItems";
 
-export default function ProductCard() {
+export default function ProductList() {
+  const [cartItems, setCartItems] = useState([]);
+
+  function handleAddToCart(product) {
+    const newItem = { ...product, quantity: 1 };
+    setCartItems([...cartItems, newItem]);
+  }
+
   return (
     <>
       {productItems.map((item: ProductItem) => (
-        <Card maxW="sm">
+        <Card key={item.id} maxW="sm">
           <CardBody>
             <Image src={item.image} objectFit="cover" borderRadius="5px" />
             <Stack mt="6" spacing="3">
@@ -33,8 +41,12 @@ export default function ProductCard() {
               <Button variant="solid" colorScheme="blue">
                 Buy Now
               </Button>
-              <Button variant="outline" colorScheme="blue">
-                Add to Cart
+              <Button
+                onClick={() => handleAddToCart(item)}
+                variant="outline"
+                colorScheme="blue"
+              >
+                Add To Cart
               </Button>
             </ButtonGroup>
           </CardFooter>
