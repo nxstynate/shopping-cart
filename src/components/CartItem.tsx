@@ -1,8 +1,16 @@
 import { Button, Text } from "@chakra-ui/react";
+import { ProductItem } from "../productItems";
 
-export default function CartItem({ item, removeFromCart }) {
+interface CartItemProps {
+  item: ProductItem;
+  removeFromCart: (itemId: number) => void;
+}
+
+export default function CartItem(props: CartItemProps) {
+  const { item, removeFromCart } = props;
+
   const handleRemove = () => {
-    removeFromCart(item.id);
+    removeFromCart(item.itemId);
   };
 
   return (

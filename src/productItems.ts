@@ -4,7 +4,7 @@ export interface ProductItem {
   description: string;
   price: number;
   quantity: number;
-  id: number;
+  itemId: number;
 }
 
 export const productItems: ProductItem[] = [
@@ -16,7 +16,7 @@ export const productItems: ProductItem[] = [
       "Crisp, juicy, and bursting with natural goodness, our apples are nature's perfect snack. From classic reds to tart greens, we have a variety to suit every taste.",
     price: 0.99,
     quantity: 0,
-    id: 1,
+    itemId: 1,
   },
   {
     name: "Banana",
@@ -26,7 +26,7 @@ export const productItems: ProductItem[] = [
       "Nature's energy-packed wonder, our bananas are the ultimate fuel for your active lifestyle. Their creamy texture and natural sweetness make them a go-to snack any time of day.",
     price: 1.99,
     quantity: 0,
-    id: 2,
+    itemId: 2,
   },
   {
     name: "Kiwi",
@@ -36,7 +36,7 @@ export const productItems: ProductItem[] = [
       "Our kiwis are a delightful explosion of vibrant green and tangy flavor. Packed with vitamin C and antioxidants, they're a refreshing addition to your healthy lifestyle.",
     price: 0.69,
     quantity: 0,
-    id: 3,
+    itemId: 3,
   },
   {
     name: "Mango",
@@ -46,7 +46,7 @@ export const productItems: ProductItem[] = [
       "Experience tropical paradise with our succulent mangoes. Each bite reveals a luscious, golden flesh that delivers a perfect blend of sweetness and tanginess.",
     price: 2.99,
     quantity: 0,
-    id: 4,
+    itemId: 4,
   },
   {
     name: "Watermelon",
@@ -56,6 +56,6 @@ export const productItems: ProductItem[] = [
       "Refreshingly juicy, our watermelons are bursting with sweetness, making them the perfect summer treat to quench your thirst and indulge your taste buds.",
     price: 4.99,
     quantity: 0,
-    id: 5,
+    itemId: 5,
   },
 ];

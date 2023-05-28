@@ -5,47 +5,41 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerOverlay,
+  RadioGroup,
+  Stack,
   useDisclosure,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import { useState } from "react";
+import { ProductItem } from "../productItems";
+import CartItem from "./CartItem";
 
-export default function Cart() {
+interface CartProps {
+  cartItems: ProductItem[];
+  removeFromCart: (itemId: number) => void;
+}
+
+export default function Cart(props: CartProps) {
+  const { cartItems, removeFromCart } = props;
+
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [placement] = React.useState("right");
-
-  // Add to cart logic:
-  const [cart, setCart] = useState([]);
-
-  const addToCart = product => {
-    const existingItem = cart.find(item => item.id === product.id);
-
-    if (existingItem) {
-      const updatedCart = cart.map(item => {
-        if (item.id === product.id) {
-          return { ...item, quantity: item.quantity + 1 };
-        }
-        return item;
-      });
-      setCart(updatedCart);
-    } else {
-      const newItem = { ...product, quantity: 1 };
-      setCart([...cart, newItem]);
-    }
-  };
+  const [placement, setPlacement] = useState("right");
 
   return (
     <>
-      <Button width="300px" variant="solid" colorScheme="blue" onClick={onOpen}>
-        Checkout
+      <RadioGroup defaultValue={placement} onChange={setPlacement}>
+        <Stack direction="row" mb="4"></Stack>
+      </RadioGroup>
+      <Button colorScheme="blue" onClick={onOpen}>
+        Open
       </Button>
       <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerHeader borderBottomWidth="1px">Cart</DrawerHeader>
+          <DrawerHeader borderBottomWidth="1px">Basic Drawer</DrawerHeader>
           <DrawerBody>
-            {cart.map(item => (
+            {cartItems.map(item => (
               <CartItem
-                key={item.id}
+                key={item.itemId}
                 item={item}
                 removeFromCart={removeFromCart}
               />
