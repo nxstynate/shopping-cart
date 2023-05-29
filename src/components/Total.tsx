@@ -8,17 +8,13 @@ interface TotalProps {
 }
 
 export default function Total(props: TotalProps) {
-  const { cartItems, removeFromCart } = props;
+  const { cartItems } = props;
 
   return (
     <>
       <Heading>Total</Heading>;
       {cartItems.map(item => (
-        <CartItem
-          key={item.itemId}
-          item={item}
-          removeFromCart={removeFromCart}
-        />
+        <CartItem key={item.itemId} item={item} />
       ))}
     </>
   );

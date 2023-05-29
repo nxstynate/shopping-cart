@@ -15,8 +15,9 @@ export default function CartItem(props: CartItemProps) {
 
   return (
     <>
-      <Text>{item.name}</Text>
-      <Text>Quantity: {item.quantity}</Text>
+      <Text>
+        {item.name} {item.quantity > 1 && `(x${item.quantity})`}
+      </Text>
       <Text>Price: {item.price}</Text>
       <Button onClick={handleRemove}>Remove</Button>
     </>

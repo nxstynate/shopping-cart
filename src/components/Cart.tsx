@@ -5,9 +5,8 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerOverlay,
-  RadioGroup,
-  Stack,
   useDisclosure,
+  Text,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { ProductItem } from "../productItems";
@@ -24,18 +23,20 @@ export default function Cart(props: CartProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [placement, setPlacement] = useState("right");
 
+  const total = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
   return (
     <>
-      <RadioGroup defaultValue={placement} onChange={setPlacement}>
-        <Stack direction="row" mb="4"></Stack>
-      </RadioGroup>
       <Button colorScheme="blue" onClick={onOpen}>
-        Open
+        Checkout
       </Button>
       <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerHeader borderBottomWidth="1px">Basic Drawer</DrawerHeader>
+          <DrawerHeader borderBottomWidth="1px">Shopping Cart</DrawerHeader>
           <DrawerBody>
             {cartItems.map(item => (
               <CartItem
@@ -44,6 +45,7 @@ export default function Cart(props: CartProps) {
                 removeFromCart={removeFromCart}
               />
             ))}
+            <Text>Total: ${total.toFixed(2)}</Text>
           </DrawerBody>
         </DrawerContent>
       </Drawer>

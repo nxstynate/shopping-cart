@@ -17,3 +17,9 @@ Notes 2023-05-21-0213:
 - add a header bar for the cart 
 - add a sidebar for the product 
 
+
+2023-05-28:
+- need to add a shopping cart Total
+- when you go to remove items from the shopping cart and removes all of the same items.
+- place the shopping cart button on the right side of the page on the top
+

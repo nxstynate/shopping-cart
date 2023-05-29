@@ -1,4 +1,4 @@
-import { Grid, GridItem, SimpleGrid } from "@chakra-ui/react";
+import { Grid, GridItem, HStack, SimpleGrid } from "@chakra-ui/react";
 import { useState } from "react";
 import "./App.css";
 import Cart from "./components/Cart";
@@ -14,8 +14,12 @@ export default function App() {
   };
 
   const removeFromCart = (itemId: number) => {
-    const updatedCartItems = cartItems.filter(item => item.itemId !== itemId);
-    setCartItems(updatedCartItems);
+    const itemIndex = cartItems.findIndex(item => item.itemId === itemId);
+    if (itemIndex !== -1) {
+      const updatedCartItems = [...cartItems];
+      updatedCartItems.splice(itemIndex, 1);
+      setCartItems(updatedCartItems);
+    }
   };
 
   return (
@@ -31,7 +35,9 @@ export default function App() {
         fontWeight="bold"
       >
         <GridItem>
-          <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
+          <HStack>
+            <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
+          </HStack>
         </GridItem>
         <GridItem pl="2" area={"main"}>
           <SimpleGrid
@@ -39,7 +45,7 @@ export default function App() {
             padding="10px"
             spacing={6}
           >
-            <ProductList products={productItems} addToCart={addToCart} />
+            <ProductList addToCart={addToCart} />
           </SimpleGrid>
         </GridItem>
       </Grid>
