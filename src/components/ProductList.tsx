@@ -24,7 +24,7 @@ export default function ProductList(props: ProductItemsProps) {
         <Card key={item.itemId} maxW="sm">
           <CardBody>
             <Image src={item.image} objectFit="cover" borderRadius="5px" />
-            <Stack mt="6" spacing="3">
+            <Stack mt="4" spacing="2">
               <Heading size="md">{item.name}</Heading>
               <Text color="gray.400">{item.description}</Text>
               <Text color="white.600" fontSize="2xl">
