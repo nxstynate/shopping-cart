@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./App.css";
 import Cart from "./components/Cart";
 import ProductList from "./components/ProductList";
-import { ProductItem, productItems } from "./productItems";
+import { ProductItem } from "./productItems";
 
 export default function App() {
   const [cartItems, setCartItems] = useState<ProductItem[]>([]);
@@ -35,7 +35,7 @@ export default function App() {
         fontWeight="bold"
       >
         <GridItem>
-          <HStack>
+          <HStack spacing={40}>
             <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
           </HStack>
         </GridItem>

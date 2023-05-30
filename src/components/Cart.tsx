@@ -21,17 +21,26 @@ export default function Cart(props: CartProps) {
   const { cartItems, removeFromCart } = props;
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [placement, setPlacement] = useState("right");
+  const [placement] = useState<"right">("right");
 
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
 
+  const cartItemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <>
-      <Button colorScheme="blue" onClick={onOpen}>
-        Checkout
+      <Button
+        size="md"
+        height="48px"
+        width="200px"
+        border="2px"
+        colorScheme="blue"
+        onClick={onOpen}
+      >
+        Checkout ({cartItemCount})
       </Button>
       <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
